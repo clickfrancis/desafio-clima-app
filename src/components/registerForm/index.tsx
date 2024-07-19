@@ -1,10 +1,12 @@
 import React from "react";
-import { Breadcrumb, Button, Calendar, Layout, Menu, theme } from 'antd';
+import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import InputForm from "./form/inputForm";
 import CalendarForm from "./form/calendarForm";
 import InputNumberForm from "./form/inputNumberForm";
 import RadioForm from "./form/radioForm";
 import SelectForm from "./form/selectForm";
+import { AppStrings } from "../../resources/strings/app_strings";
+import ButtonApp from "../buttons";
 
 const { Header, Content } = Layout;
 
@@ -121,8 +123,8 @@ const RegisterForm: React.FC = () => {
                     padding: '0px'
                 }}>
                 <div>
-                    <Button />
-                    <Button />
+                    <ButtonApp text = {AppStrings.buttonCancel} />
+                    <ButtonApp text = {AppStrings.buttonSave} />
                 </div>
             </Content>
         </Layout>
