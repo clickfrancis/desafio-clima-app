@@ -1,0 +1,22 @@
+.custom-radio-group {
+  padding-top: 10px;
+
+  .custom-radio {
+    background: #BEE7F9;
+    color: #414ABA;
+    border-radius: 6px;
+    position: initial;
+  }
+
+  
+
+  .custom-radio:hover {
+    border: 1px solid #221F52;
+    color: #221F52;
+  }
+
+  .custom-radio-adapter{
+    margin-left: 10px;
+  }
+}
+
