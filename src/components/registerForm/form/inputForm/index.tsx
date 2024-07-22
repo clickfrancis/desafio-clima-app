@@ -1,5 +1,6 @@
 import React from 'react';
 import { Input, Space } from 'antd';
+import './style.scss'
 
 const InputForm: React.FC = () => {
 
@@ -8,11 +9,9 @@ const InputForm: React.FC = () => {
       <span>
         Cidade*
       </span>
-      <Input.Search
+      <Input.Search className='areaSearchCity'
         placeholder="Busque por uma cidade"
       />
-      <Space direction="horizontal">
-      </Space>
     </Space>
   );
 };

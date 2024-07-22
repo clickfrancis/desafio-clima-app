@@ -1,5 +1,5 @@
 import React from "react";
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Breadcrumb, Layout, Menu, theme, Flex } from 'antd';
 import InputForm from "./form/inputForm";
 import CalendarForm from "./form/calendarForm";
 import InputNumberForm from "./form/inputNumberForm";
@@ -7,6 +7,7 @@ import RadioForm from "./form/radioForm";
 import SelectForm from "./form/selectForm";
 import { AppStrings } from "../../resources/strings/app_strings";
 import ButtonApp from "../buttons";
+import './style.scss';
 
 const { Header, Content } = Layout;
 
@@ -39,13 +40,15 @@ const RegisterForm: React.FC = () => {
                 <div>
                     <h2>Cadastro de Dados Meteorológicos</h2>
                 </div>
+                <Flex justify="space-around">
                 <div
                     style={{
                         background: colorBgContainer,
                         borderRadius: borderRadiusLG,
                     }}
                 >
-                    <div>
+                     <Flex vertical align="center" justify="space-between">
+                        <div  className="areaSearchCity">
                         <h3>
                             Buscar por cidade
                         </h3>
@@ -54,6 +57,7 @@ const RegisterForm: React.FC = () => {
                     <div>
                         <CalendarForm />
                     </div>
+                    </Flex>
                 </div>
                 <div
                     style={{
@@ -61,6 +65,8 @@ const RegisterForm: React.FC = () => {
                         borderRadius: borderRadiusLG,
                     }}
                 >
+                                         <Flex vertical align="center" justify="space-between">
+
                     <div>
                         <div>
                             <h3>Informe a temperatura</h3>
@@ -113,8 +119,10 @@ const RegisterForm: React.FC = () => {
                             </div>
                         </div>
                     </div>
+                    </Flex>
 
                 </div>
+                </Flex>
             </Content>
            
             <Content
