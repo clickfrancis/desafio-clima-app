@@ -7,6 +7,7 @@ import { Calendar, Col, Radio, Row, Select, theme, Typography } from 'antd';
 import type { CalendarProps } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayLocaleData from 'dayjs/plugin/localeData';
+import './style.scss';
 
 dayjs.extend(dayLocaleData);
 
@@ -14,7 +15,7 @@ const CalendarForm: React.FC = () => {
   const { token } = theme.useToken();
 
   const onPanelChange = (value: Dayjs, mode: CalendarProps<Dayjs>['mode']) => {
-    console.log(value.format('YYYY-MM-DD'), mode);
+    console.log(value.format('YYYY-MM'), mode);
   };
 
   const wrapperStyle: React.CSSProperties = {
@@ -25,12 +26,9 @@ const CalendarForm: React.FC = () => {
 
   return (
     <div style={wrapperStyle}>
-      <h3>
-        Selecione a data
-      </h3>
       <Calendar
         fullscreen={false}
-        headerRender={({ value, type, onChange, onTypeChange }) => {
+        headerRender={({ value, onChange }) => {
           const start = 0;
           const end = 12;
           const monthOptions = [];
@@ -61,21 +59,44 @@ const CalendarForm: React.FC = () => {
               </Select.Option>,
             );
           }
+
+          const handleMonthChange = (direction: number) => {
+            const newMonth = value.clone().add(direction, 'month');
+            onChange(newMonth);
+          };
+
+          const handleYearChange = (direction: number) => {
+            const newYear = value.clone().add(direction, 'year');
+            onChange(newYear);
+          };
+
           return (
             <div style={{ padding: 8 }}>
-              <Typography.Title level={4}>Custom header</Typography.Title>
               <Row gutter={8}>
-                <Col>
-                  <Radio.Group
-                    size="small"
-                    onChange={(e) => onTypeChange(e.target.value)}
-                    value={type}
-                  >
-                    <Radio.Button value="month">Month</Radio.Button>
-                    <Radio.Button value="year">Year</Radio.Button>
-                  </Radio.Group>
+                <Col flex="none">
+                  <div style={{ padding: '0 0px' }}>
+                    <button className='button-handle' onClick={() => handleYearChange(-1)}>{"<<"}</button>
+                  </div>
                 </Col>
-                <Col>
+                <Col flex="none">
+                  <div style={{ padding: '0 0px' }}>
+                  <button className='button-handle' onClick={() => handleMonthChange(-1)}>{"<"}</button>
+                  </div>
+                </Col>
+                <Col flex="auto">
+                  <Select
+                    size="small"
+                    dropdownMatchSelectWidth={false}
+                    value={month}
+                    onChange={(newMonth) => {
+                      const now = value.clone().month(newMonth);
+                      onChange(now);
+                    }}
+                  >
+                    {monthOptions}
+                  </Select>
+                </Col>
+                <Col flex="auto">
                   <Select
                     size="small"
                     dropdownMatchSelectWidth={false}
@@ -89,18 +110,15 @@ const CalendarForm: React.FC = () => {
                     {options}
                   </Select>
                 </Col>
-                <Col>
-                  <Select
-                    size="small"
-                    dropdownMatchSelectWidth={false}
-                    value={month}
-                    onChange={(newMonth) => {
-                      const now = value.clone().month(newMonth);
-                      onChange(now);
-                    }}
-                  >
-                    {monthOptions}
-                  </Select>
+                <Col flex="none">
+                  <div style={{ padding: '0 0px' }}>
+                    <button className="button-handle" onClick={() => handleMonthChange(1)}>{">"}</button>
+                  </div>
+                </Col>
+                <Col flex="none">
+                  <div style={{ padding: '0 0px' }}>
+                    <button className='button-handle' onClick={() => handleYearChange(1)}>{">>"}</button>
+                  </div>
                 </Col>
               </Row>
             </div>

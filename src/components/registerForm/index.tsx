@@ -54,7 +54,10 @@ const RegisterForm: React.FC = () => {
                         </h3>
                         <InputForm />
                     </div>
-                    <div>
+                    <div className="area-input-date">
+                    <h3>
+        Selecione a data
+      </h3>
                         <CalendarForm />
                     </div>
                     </Flex>
