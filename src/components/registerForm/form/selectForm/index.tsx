@@ -1,10 +1,11 @@
 import React from 'react';
 import { Select } from 'antd';
+import './style.scss';
 
 const SelectForm: React.FC = () => (
   <Select
     showSearch
-    style={{ width: 200 }}
+    className='select-climate-form'
     placeholder="Search to Select"
     optionFilterProp="label"
     filterSort={(optionA, optionB) =>

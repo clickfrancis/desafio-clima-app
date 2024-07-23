@@ -108,12 +108,12 @@ const RegisterForm: React.FC = () => {
                                 </div>
                             </div>
 
-                            <div>
+                            <div className="area-climate-form">
                                 <div>
                                     <h3>Informe o clima</h3>
                                 </div>
                                 <div>
-                                    <span>Clima*</span>
+                                    <span className="text-climate-form">Clima*</span>
                                     <SelectForm />
                                 </div>
                             </div>
