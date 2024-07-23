@@ -1,17 +1,20 @@
 .areaSearchCity {
     width: 100%;
 
-    .areaInputCity{
+    .areaInputCity {
         border: 2px solid #414ABA;
 
-        .ant-input-suffix{
+        .ant-input-suffix {
             color: #414ABA;
             ;
         }
     }
 }
 
-.area-input-date{
+.area-input-date {
     padding: 74px 0px 0px 0px;
 }
 
+.area-input-number {
+    width: 100%;
+}

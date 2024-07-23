@@ -1,5 +1,5 @@
 import React from "react";
-import { Breadcrumb, Layout, Menu, theme, Flex } from 'antd';
+import { Breadcrumb, Layout, Menu, theme, Flex, Row, Col } from 'antd';
 import InputForm from "./form/inputForm";
 import CalendarForm from "./form/calendarForm";
 import InputNumberForm from "./form/inputNumberForm";
@@ -30,7 +30,7 @@ const RegisterForm: React.FC = () => {
             <Content
                 style={{
                     background: colorBgContainer,
-                    padding: '0px'
+                    padding: '40px 120px'
                 }}>
                 <Breadcrumb style={{ margin: '16px 0' }}>
                     <Breadcrumb.Item>Home</Breadcrumb.Item>
@@ -40,102 +40,136 @@ const RegisterForm: React.FC = () => {
                 <div>
                     <h2>Cadastro de Dados Meteorológicos</h2>
                 </div>
-                <Flex justify="space-around">
-                <div
-                    style={{
-                        background: colorBgContainer,
-                        borderRadius: borderRadiusLG,
-                    }}
-                >
-                     <Flex vertical align="center" justify="space-between">
-                        <div  className="areaSearchCity">
-                        <h3>
-                            Buscar por cidade
-                        </h3>
-                        <InputForm />
-                    </div>
-                    <div className="area-input-date">
-                    <h3>
-        Selecione a data
-      </h3>
-                        <CalendarForm />
-                    </div>
-                    </Flex>
-                </div>
-                <div
-                    style={{
-                        background: colorBgContainer,
-                        borderRadius: borderRadiusLG,
-                    }}
-                >
-                                         <Flex vertical align="center" justify="space-between">
-
-                    <div>
-                        <div>
-                            <h3>Informe a temperatura</h3>
-                        </div>
-
-                        <div>
-                            <div>
-                                <InputNumberForm />
+                <Flex justify="flex-start">
+                    <div
+                        style={{
+                            background: colorBgContainer,
+                            borderRadius: borderRadiusLG,
+                        }}
+                    >
+                        <Flex vertical align="center" justify="space-between">
+                            <div className="areaSearchCity">
+                                <h3>
+                                    Buscar por cidade
+                                </h3>
+                                <InputForm />
                             </div>
-                            <div>
-                                <InputNumberForm />
+                            <div className="area-input-date">
+                                <h3>
+                                    Selecione a data
+                                </h3>
+                                <CalendarForm />
                             </div>
-                        </div>
+                        </Flex>
                     </div>
+                    <div
+                        style={{
+                            background: colorBgContainer,
+                            borderRadius: borderRadiusLG,
+                            paddingLeft: 120
+                        }}
+                    >
+                        <Flex vertical align="center" justify="space-between">
+                            <div className="area-input-number">
+                                <div>
+                                    <h3>Informe a temperatura</h3>
+                                </div>
 
-                    <div>
-                        <div>
-                            <h3>Selecione o turno</h3>
-                        </div>
-                        <div>
-                            <span>Turno*</span>
-                            <RadioForm />
+                                <div>
+                                    <Flex justify="space-between">
+                                     <Col span={10}>
+                                            <div>
+                                                <InputNumberForm
+                                                    title={"Máxima"}
+                                                    information={0}
+                                                />
+                                            </div>
+                                        </Col>
+                                        <Col span={10}>
+                                            <div>
+                                                <InputNumberForm
+                                                    title={"Mínima"}
+                                                    information={0}
+                                                />
+                                            </div>
+                                        </Col>
 
-                        </div>
-                    </div>
+                                    </Flex>
 
-                    <div>
-                        <div>
-                            <h3>Informe o clima</h3>
-                        </div>
-                        <div>
-                            <span>Clima*</span>
-                            <SelectForm />
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <h3>Informações adicionais</h3>
-                        </div>
-                        <div>
-                            <div>
-                                <InputNumberForm />
+                                </div>
                             </div>
-                            <div>
-                                <InputNumberForm />
-                            </div>
-                            <div>
-                                <InputNumberForm />
-                            </div>
-                        </div>
-                    </div>
-                    </Flex>
 
-                </div>
+                            <div>
+                                <div>
+                                    <h3>Selecione o turno</h3>
+                                </div>
+                                <div>
+                                    <span>Turno*</span>
+                                    <RadioForm />
+
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <h3>Informe o clima</h3>
+                                </div>
+                                <div>
+                                    <span>Clima*</span>
+                                    <SelectForm />
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <h3>Informações adicionais</h3>
+                                </div>
+                                <div>
+                                <Flex justify="space-between">
+                                     <Col span={10}>
+                                            <div>
+                                                <InputNumberForm
+                                                    title={"Precipitação"}
+                                                    information={0}
+                                                    measure={"mm"}
+                                                />
+                                            </div>
+                                        </Col>
+                                        <Col span={10}>
+                                            <div>
+                                                <InputNumberForm
+                                                    title={"Umidade"}
+                                                    information={0}
+                                                    measure={"%"}
+                                                />
+                                            </div>
+                                        </Col>
+                                        <Col span={10}>
+                                            <div>
+                                                <InputNumberForm
+                                                    title={"Velocidade do vento"}
+                                                    information={0}
+                                                    measure={"km/h"}
+                                                />
+                                            </div>
+                                        </Col>
+                                    </Flex>
+                                </div>
+                            </div>
+                        </Flex>
+
+                    </div>
                 </Flex>
             </Content>
-           
+
             <Content
                 style={{
                     background: colorBgContainer,
                     padding: '0px'
                 }}>
                 <div>
-                    <ButtonApp text = {AppStrings.buttonCancel} />
-                    <ButtonApp text = {AppStrings.buttonSave} />
+                    <ButtonApp text={AppStrings.buttonCancel} />
+                    <ButtonApp text={AppStrings.buttonSave} />
                 </div>
             </Content>
         </Layout>
