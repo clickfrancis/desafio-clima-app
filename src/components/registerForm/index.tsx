@@ -30,7 +30,7 @@ const RegisterForm: React.FC = () => {
             <Content
                 style={{
                     background: colorBgContainer,
-                    padding: '40px 120px'
+                    padding: '40px 10%'
                 }}>
                 <Breadcrumb style={{ margin: '16px 0' }}>
                     <Breadcrumb.Item>Home</Breadcrumb.Item>
@@ -40,14 +40,14 @@ const RegisterForm: React.FC = () => {
                 <div>
                     <h2>Cadastro de Dados Meteorológicos</h2>
                 </div>
-                <Flex justify="flex-start">
-                    <div
+                <div className="area-form">
+                    <div className="area-form-column-a"
                         style={{
                             background: colorBgContainer,
                             borderRadius: borderRadiusLG,
                         }}
                     >
-                        <Flex vertical align="center" justify="space-between">
+                        <Flex vertical justify="space-between">
                             <div className="areaSearchCity">
                                 <h3>
                                     Buscar por cidade
@@ -62,14 +62,13 @@ const RegisterForm: React.FC = () => {
                             </div>
                         </Flex>
                     </div>
-                    <div
+                    <div className="area-form-column-b"
                         style={{
                             background: colorBgContainer,
                             borderRadius: borderRadiusLG,
-                            paddingLeft: 120
                         }}
                     >
-                        <Flex vertical align="center" justify="space-between">
+                        <Flex vertical justify="space-between">
                             <div className="area-input-number">
                                 <div>
                                     <h3>Informe a temperatura</h3>
@@ -93,13 +92,12 @@ const RegisterForm: React.FC = () => {
                                                 />
                                             </div>
                                         </Col>
-
                                     </Flex>
 
                                 </div>
                             </div>
 
-                            <div>
+                            <div className="area-turn-form">
                                 <div>
                                     <h3>Selecione o turno</h3>
                                 </div>
@@ -159,7 +157,7 @@ const RegisterForm: React.FC = () => {
                         </Flex>
 
                     </div>
-                </Flex>
+                </div>
             </Content>
 
             <Content
