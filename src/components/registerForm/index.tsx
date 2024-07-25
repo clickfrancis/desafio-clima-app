@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Breadcrumb, Layout, Menu, theme, Flex, Row, Col } from 'antd';
 import InputForm from "./form/inputForm";
 import CalendarForm from "./form/calendarForm";
@@ -15,6 +15,18 @@ const RegisterForm: React.FC = () => {
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
+
+        // Estado para armazenar a data selecionada
+        const [selectedDate, setSelectedDate] = useState<string>("");
+
+        // Função para atualizar o estado com a data selecionada
+        const handleDateChange = (date: string) => {
+            console.log('Data antes:', + selectedDate)
+
+            setSelectedDate(date);
+
+            console.log('Data selecionada', + date);
+        };
 
     return (
         <Layout>
@@ -58,7 +70,9 @@ const RegisterForm: React.FC = () => {
                                 <h3>
                                     Selecione a data
                                 </h3>
-                                <CalendarForm />
+                                <CalendarForm 
+                                onDateSelect={handleDateChange}
+                                />
                             </div>
                         </Flex>
                     </div>
@@ -76,7 +90,7 @@ const RegisterForm: React.FC = () => {
 
                                 <div>
                                     <Flex justify="space-between">
-                                     <Col span={10}>
+                                        <Col span={10}>
                                             <div>
                                                 <InputNumberForm
                                                     title={"Máxima"}
@@ -123,8 +137,8 @@ const RegisterForm: React.FC = () => {
                                     <h3>Informações adicionais</h3>
                                 </div>
                                 <div>
-                                <Flex justify="space-between">
-                                     <Col span={10}>
+                                    <Flex justify="space-between">
+                                        <Col span={10}>
                                             <div>
                                                 <InputNumberForm
                                                     title={"Precipitação"}
@@ -165,10 +179,15 @@ const RegisterForm: React.FC = () => {
                     background: colorBgContainer,
                     padding: '0px'
                 }}>
-                <div>
-                    <ButtonApp text={AppStrings.buttonCancel} />
-                    <ButtonApp text={AppStrings.buttonSave} />
-                </div>
+                <Flex justify="center">
+                    <div className="area-button-save-cancel">
+                        <ButtonApp
+                            text={AppStrings.buttonCancel}
+                            className="button-cancel"
+                        />
+                        <ButtonApp text={AppStrings.buttonSave} />
+                    </div>
+                </Flex>
             </Content>
         </Layout>
     );

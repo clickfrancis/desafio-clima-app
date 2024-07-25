@@ -11,7 +11,13 @@ import './style.scss';
 
 dayjs.extend(dayLocaleData);
 
-const CalendarForm: React.FC = () => {
+interface Props {
+  onDateSelect: (date: string) => void;
+}
+
+const CalendarForm: React.FC<Props> = (props: Props) => {
+  const { onDateSelect } = props;
+
   const { token } = theme.useToken();
 
   const onPanelChange = (value: Dayjs, mode: CalendarProps<Dayjs>['mode']) => {
@@ -125,6 +131,11 @@ const CalendarForm: React.FC = () => {
           );
         }}
         onPanelChange={onPanelChange}
+        onSelect={(value) => {
+          const selectedDate = value.format('YYYY-MM-DD');
+          onDateSelect(selectedDate); 
+          console.log('aqui'+ value.format('YYYY-MM-DD'));
+      }}
       />
     </div>
   );
