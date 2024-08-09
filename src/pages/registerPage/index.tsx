@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Layout, theme, Flex } from 'antd';
 import { AppStrings } from "../../resources/strings/app_strings";
 import { ClimateType } from "../../resources/enums/climaTypes";
@@ -15,6 +16,7 @@ const RegisterPage: React.FC = () => {
         token: { colorBgContainer },
     } = theme.useToken();
 
+        const navigate = useNavigate();
         const [selectCity, setSelectCity] = useState<string>("");
         const [selectedDate, setSelectedDate] = useState<string>("");
         const [selectedClimate, setSelectedClimate] = useState<ClimateType | undefined>(undefined);
@@ -85,16 +87,21 @@ const RegisterPage: React.FC = () => {
                     clima: selectedClimate,
                     precipitacao: selectedPrecipatation,
                     umidade: selectedHumidity,
-                    velDoVento: selectedPrecipatation, 
+                    velDoVento: selectedWind, 
                 };
         
                 await axios.post('http://localhost:8080/dados-metereologicos', payload);
+                navigate('/');
         
             } catch (error) {
                 throw new Error("Erro ao enviar dados:");
             }
         };
-    
+        
+        const handdleCancel = () => {
+            navigate('/');
+        }
+
         const handleOk = () => {
             setIsModalVisible(false);
         };
@@ -147,6 +154,7 @@ const RegisterPage: React.FC = () => {
                         <ButtonApp
                             text={AppStrings.buttonCancel}
                             className="button-cancel"
+                            onClick={handdleCancel}
                         />
                         <ButtonApp 
                             onClick={handleSubmit}

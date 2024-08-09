@@ -88,6 +88,10 @@ const EditPage: React.FC = () => {
         }
     };
 
+    const handleCancel = () => {
+        navigate('/');
+    }
+
     const handleCityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSelectCity(e.target.value);
     };
@@ -168,6 +172,7 @@ const EditPage: React.FC = () => {
                         <ButtonApp
                             text={AppStrings.buttonCancel}
                             className="button-cancel"
+                            onClick={handleCancel}
                         />
                         <ButtonApp 
                             onClick={handleSave}
