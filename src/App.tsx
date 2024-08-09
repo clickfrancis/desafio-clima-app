@@ -1,13 +1,21 @@
 import React from 'react';
-import RegisterForm from './components/registerForm';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HeaderComponent from './components/header/headerComponent';
+import ListPage from './pages/listPage/index'
+import RegisterPage from  './pages/registerPage/index'
+import UpdatePage from './pages/updatePage/index';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-            <RegisterForm />
-
-    </div>
+      <Router>
+          <HeaderComponent />
+          <Routes>
+              <Route path="/" element={<ListPage />} />
+              <Route path="/cadastro" element={<RegisterPage />} />
+              <Route path="/atualizar/:city/:date/:shift" element={<UpdatePage />} />
+          </Routes>
+      </Router>
   );
-}
+};
 
 export default App;

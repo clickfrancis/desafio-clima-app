@@ -1,0 +1,21 @@
+.modal-form {
+    background: #DB0D33 !important;
+    width: 755px !important;
+    height: 178px;
+    padding: 18px 16px 18px 16px;
+    border-radius: 8px;
+
+    .ant-modal-content {
+        background: none !important;
+        box-shadow: none !important;
+        border-radius: none !important;
+
+        .ant-modal-close {
+            color: #FAFAFA !important;
+        }
+    }
+
+    p {
+        color: #FAFAFA;
+    }
+}

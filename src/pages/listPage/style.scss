@@ -1,0 +1,24 @@
+// Estilos para a mensagem "No data"
+.custom-no-data {
+    background: #F6F7F5;
+    font-family: TTSupermolot-Regular;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22.14px;
+    text-align: left;
+    padding: 20px;
+    border-radius: 4px; // Opcional: Adiciona bordas arredondadas
+    color: #000; // Opcional: Define a cor do texto
+}
+
+
+.input-cidade{
+
+    .ant-input {
+        width: 50%;
+    }
+
+    .tabela {
+        padding-top: 25px;
+    }
+}

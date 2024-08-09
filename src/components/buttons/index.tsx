@@ -1,9 +1,11 @@
 import React from "react";
 
-class ButtonApp extends React.Component<{ text: string , className?: string}> {
+class ButtonApp extends React.Component<{ text: string , className?: string, onClick?: () => void}> {
     render() {
         return (
-            <button className={this.props.className}>
+            <button
+                onClick = {this.props.onClick|| undefined}
+                className={this.props.className}>
                 {this.props.text}
             </button>
         )

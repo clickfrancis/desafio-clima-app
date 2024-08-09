@@ -1,0 +1,22 @@
+
+
+.area-button-save-cancel {
+    padding: 20px 0 20px 0;
+
+    .button-cancel {
+        color: #414ABA !important;
+        background-color: #FFFFFF !important;
+    }
+    
+    button {
+        margin-left: 10px;
+        width: 201px;
+        height: 40px;
+        padding: 6.4px 15px 6.4px 15px;
+        border-radius: 5px;
+        border: 1px solid #414ABA;
+        color: #FFFFFF;
+        background-color: #414ABA;
+        cursor: pointer;
+    }
+}

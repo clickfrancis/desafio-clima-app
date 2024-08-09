@@ -92,7 +92,6 @@ const CalendarForm: React.FC<Props> = (props: Props) => {
                 <Col flex="auto">
                   <Select
                     size="small"
-                    dropdownMatchSelectWidth={false}
                     value={month}
                     onChange={(newMonth) => {
                       const now = value.clone().month(newMonth);
@@ -105,7 +104,6 @@ const CalendarForm: React.FC<Props> = (props: Props) => {
                 <Col flex="auto">
                   <Select
                     size="small"
-                    dropdownMatchSelectWidth={false}
                     className="my-year-select"
                     value={year}
                     onChange={(newYear) => {
@@ -132,9 +130,8 @@ const CalendarForm: React.FC<Props> = (props: Props) => {
         }}
         onPanelChange={onPanelChange}
         onSelect={(value) => {
-          const selectedDate = value.format('YYYY-MM-DD');
+          const selectedDate = value.format('DD-MM-YYYY');
           onDateSelect(selectedDate); 
-          console.log('aqui'+ value.format('YYYY-MM-DD'));
       }}
       />
     </div>
