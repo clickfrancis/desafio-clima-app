@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { InputNumber, Row , Col, Flex} from 'antd';
+import { Row , Col, Flex} from 'antd';
 import './style.scss';
 
 function InputNumberForm(props: { title : String, information : number, measure? : String, onValueChange?: (value: number) => void, className?: string}) {
